@@ -44,12 +44,29 @@ public class MainScreen extends AppCompatActivity {
         });
 
         trocacirculo = findViewById(R.id.trocacirculo);
-        TelaCirculo = new Intent(MainScreen.this,
-                TelaCirculo.class);
+        TelaCirculo = new Intent(MainScreen.this, TelaCirculo.class);
         trocacirculo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 startActivity(TelaCirculo);
+            }
+        });
+
+        trocaTrapezio = findViewById(R.id.trocatrapezio);
+        TelaTrapezio = new Intent(MainScreen.this, TelaTrapezio.class);
+        trocaTrapezio.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(TelaTrapezio);
+            }
+        });
+
+        trocatriangulo = findViewById(R.id.trocatriangulo);
+        TelaTriangulo = new Intent(MainScreen.this, TelaTriangulo.class);
+        trocatriangulo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(TelaTriangulo);
             }
         });
 

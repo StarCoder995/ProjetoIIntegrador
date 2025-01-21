@@ -20,7 +20,7 @@
         tools:layout_editor_absoluteX="1dp" />
 
     <Button
-        android:id="@+id/trocaTriangulo"
+        android:id="@+id/trocatriangulo"
         android:layout_width="205dp"
         android:layout_height="49dp"
         android:layout_marginTop="476dp"
