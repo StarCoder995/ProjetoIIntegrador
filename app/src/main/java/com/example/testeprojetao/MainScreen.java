@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.view.View;
 
 public class MainScreen extends AppCompatActivity {
-    Button trocaquadrado,trocaretangulo,trocacirculo,trocaTrapezio,trocatriangulo;
-    Intent TelaQuadrado,TelaRetangulo,TelaCirculo,TelaTrapezio,TelaTriangulo;
+    Button trocaquadrado,trocaretangulo,trocacirculo,trocaTrapezio,trocatriangulo, trocahexagono;
+    Intent TelaQuadrado,TelaRetangulo,TelaCirculo,TelaTrapezio,TelaTriangulo, TelaHexagono;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +69,16 @@ public class MainScreen extends AppCompatActivity {
                 startActivity(TelaTriangulo);
             }
         });
+
+        trocahexagono = findViewById(R.id.trocaExagono);
+        TelaHexagono= new Intent(MainScreen.this, TelaHexagono.class);
+        trocaheagono.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(TelaHexagono);
+            }
+        });
+
 
 
 
