@@ -70,7 +70,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
-        trocahexagono = findViewById(R.id.trocaExagono);
+        trocahexagono = findViewById(R.id.trocahexagono);
         TelaHexagono= new Intent(MainScreen.this, TelaHexagono.class);
         trocaheagono.setOnClickListener(new View.OnClickListener(){
             @Override

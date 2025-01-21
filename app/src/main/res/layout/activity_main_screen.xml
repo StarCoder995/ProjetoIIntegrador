@@ -13,6 +13,28 @@
         android:id="@+id/textView3"
         android:layout_width="408dp"
         android:layout_height="69dp"
+        android:layout_marginTop="556dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:id="@+id/trocahexagono"
+        android:layout_width="205dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="564dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Hexagono"
+        android:textColor="#560F0F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="408dp"
+        android:layout_height="69dp"
         android:layout_marginTop="468dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:text="TextView"
