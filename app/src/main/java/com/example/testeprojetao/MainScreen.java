@@ -72,7 +72,7 @@ public class MainScreen extends AppCompatActivity {
 
         trocahexagono = findViewById(R.id.trocahexagono);
         TelaHexagono= new Intent(MainScreen.this, TelaHexagono.class);
-        trocaheagono.setOnClickListener(new View.OnClickListener(){
+        trocahexagono.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 startActivity(TelaHexagono);
