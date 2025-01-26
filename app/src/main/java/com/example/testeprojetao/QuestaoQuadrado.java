@@ -1,19 +1,22 @@
 package com.example.testeprojetao;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+// Imports Utilizados
+import android.view.View;
+import android.widget.TextView;
+import android.widget.RadioGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class QuestaoQuadrado extends AppCompatActivity {
 
@@ -23,26 +26,28 @@ public class QuestaoQuadrado extends AppCompatActivity {
     private TextView resultTextView;
 
     private List<Question> questions;
-    private int currentQuestionIndex = 0;
+    private int currentQuestionIndex = 0;   //Número da questão atual na lista
     private List<Question> correctAnswers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questao_quadrado);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_questoes_quadrado);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Sincronização de itens com os do xml
+        questionTextView = findViewById(R.id.questionTextView);     // comando da questao
+        answersRadioGroup = findViewById(R.id.answersRadioGroup);   // lista de respostas
+        submitButton = findViewById(R.id.submitButton);             // botao de enviar
+        resultTextView = findViewById(R.id.resultTextView);         // caixa de resultado
 
-        questionTextView = findViewById(R.id.questionTextView);
-        answersRadioGroup = findViewById(R.id.answersRadioGroup);
-        submitButton = findViewById(R.id.submitButton);
-        resultTextView = findViewById(R.id.resultTextView);
+        questions = new ArrayList<>(); //Lista das perguntas
 
-        // Inicializar perguntas
-        questions = new ArrayList<>();
+        // Prox 3 linhas: Cria perguntas na lista de perguntas
         questions.add(new Question("Qual é a capital da França?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Paris"));
         questions.add(new Question("Qual é a capital da Espanha?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Madri"));
         questions.add(new Question("Qual é a capital de Portugal?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Lisboa"));
@@ -53,48 +58,56 @@ public class QuestaoQuadrado extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selectedId = answersRadioGroup.getCheckedRadioButtonId();
-                if (selectedId != -1) {
-                    RadioButton selectedRadioButton = findViewById(selectedId);
-                    String selectedAnswer = selectedRadioButton.getText().toString();
-                    Question currentQuestion = questions.get(currentQuestionIndex);
+                int selectedId = answersRadioGroup.getCheckedRadioButtonId();         // Essa varável armazena o id(posiça) da resposta marcada no momento que se aperta o botao
+                if (selectedId != -1) {                                               //Testa para ver se há uma escolha feita
+                    RadioButton botaoMarcado = findViewById(selectedId);              // Cria um objeto ligado a resposta selecionada, usando o id armazenado antes
+                    String respostaMarcada = botaoMarcado.getText().toString();       // transforma o texto da botaoMarcadao em uma string
+                    Question currentQuestion = questions.get(currentQuestionIndex);   //extrai a questão da lista , para ser usada Obs : Isso não entra em conflito com aquela do loadQuestion(), pois são objetos dentro de métodos, limitados a eles
 
-                    if (selectedAnswer.equals(currentQuestion.getCorrectAnswer())) {
-                        resultTextView.setText("Correto!");
-                        correctAnswers.add(currentQuestion);
+                    if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
+                        correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
+                        String result = "Correto!";
+                        resultTextView.setText(result);                                //Se sim, Afirma isso na caixa de resultado
                     } else {
-                        resultTextView.setText("Incorreto! A resposta correta é " + currentQuestion.getCorrectAnswer() + ".");
+                        resultTextView.setText("Incorreto! A resposta correta é " + currentQuestion.getCorrectAnswer() + ".");     //Se não, mostra a reposta correta na caixa de texto
                     }
 
-                    currentQuestionIndex++;
-                    if (currentQuestionIndex < questions.size()) {
-                        loadQuestion();
+                    currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
+                    if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
+                        loadQuestion();                             //Se sim, carrega a próxima
                     } else {
-                        showCorrectAnswers();
+                        showCorrectAnswers();                       //Se não, mostra as que foram acertadas
                     }
                 } else {
-                    resultTextView.setText("Por favor, selecione uma resposta.");
+                    resultTextView.setText("Por favor, selecione uma resposta.");      //Resposta caso o user não tenha escolhido nada
                 }
             }
         });
-    }
 
-    private void loadQuestion() {
-        Question currentQuestion = questions.get(currentQuestionIndex);
-        questionTextView.setText(currentQuestion.getQuestion());
-        answersRadioGroup.clearCheck();
-        for (int i = 0; i < currentQuestion.getAnswers().size(); i++) {
-            RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
-            radioButton.setText(currentQuestion.getAnswers().get(i));
-        }
-        resultTextView.setText("");
     }
+        private void loadQuestion(){
+        //Linha a seguir: Carrega a questão atual, extraindo ela da lista com base no número dela
+            Question currentQuestion = questions.get(currentQuestionIndex);
+            questionTextView.setText(currentQuestion.getQuestion()); // importa o titulo da questão
+            answersRadioGroup.clearCheck();
+            /*
+            Descriçao do loop a seguir:
+            - Cria uma Váriavel de navegaçao
+            - Essa variável vai de zero até o último elemento da lista de respostas
+            - Para cada posição, é criado um objeto pro botao das respostas, criado com o texto de resposta extraído
+             */
+            for (int i = 0; i < currentQuestion.getAnswers().size(); i++) {
+                RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
+                radioButton.setText(currentQuestion.getAnswers().get(i));
+            }
+            resultTextView.setText("");
+        }
 
-    private void showCorrectAnswers() {
-        StringBuilder correctAnswersText = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
-        for (Question question : correctAnswers) {
-            correctAnswersText.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
+        private void showCorrectAnswers() {
+            StringBuilder correctAnswersText = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
+            for (Question question : correctAnswers) {
+                correctAnswersText.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
+            }
+            resultTextView.setText(correctAnswersText.toString());
         }
-        resultTextView.setText(correctAnswersText.toString());
-    }
 }

@@ -6,22 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_launcher_background"
-    android:backgroundTint="@color/design_default_color_secondary_variant"
-    tools:context=".TelaCirculo">
+    android:backgroundTint="@color/design_default_color_secondary"
+    tools:context=".QuestaoQuadrado">
 
     <TextView
         android:id="@+id/questionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="272dp"
         android:text="Pergunta aqui"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/answersRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.274"
+        tools:layout_editor_absoluteX="0dp">
 
         <RadioButton
             android:id="@+id/answer1"
@@ -52,12 +58,24 @@
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enviar Resposta" />
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="320dp"
+        android:text="Enviar Resposta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/resultTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="" />
+        android:layout_width="273dp"
+        android:layout_height="304dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:hint="R E S U L T A DO"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/material_dynamic_tertiary10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
