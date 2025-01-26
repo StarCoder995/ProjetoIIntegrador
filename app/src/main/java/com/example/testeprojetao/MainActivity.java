@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 import android.content.Intent;
 import android.widget.Button;
 import android.view.View;
+
 public class MainActivity extends AppCompatActivity {
     Button troca1;
     Intent tela1;

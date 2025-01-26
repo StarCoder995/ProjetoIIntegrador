@@ -13,7 +13,7 @@
         android:id="@+id/textView3"
         android:layout_width="408dp"
         android:layout_height="69dp"
-        android:layout_marginTop="468dp"
+        android:layout_marginTop="388dp"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:text="TextView"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,32 +23,10 @@
         android:id="@+id/trocatriangulo"
         android:layout_width="205dp"
         android:layout_height="49dp"
-        android:layout_marginTop="476dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="396dp"
+        android:layout_marginEnd="24dp"
         android:backgroundTint="#FFFFFF"
         android:text="Triangulo"
-        android:textColor="#560F0F"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="408dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="376dp"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp" />
-
-    <Button
-        android:id="@+id/trocatrapezio"
-        android:layout_width="205dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="384dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Trapézio"
         android:textColor="#560F0F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

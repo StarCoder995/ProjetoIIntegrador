@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.view.View;
 
 public class TelaRetangulo extends AppCompatActivity {
+    Button trocaAssuntos;
+    Intent TelaAssuntos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,15 @@ public class TelaRetangulo extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        trocaAssuntos = findViewById(R.id.trocaassuntos);
+        TelaAssuntos = new Intent(this, MainScreen.class);
+        trocaAssuntos.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(TelaAssuntos);
+            }
         });
 
     }

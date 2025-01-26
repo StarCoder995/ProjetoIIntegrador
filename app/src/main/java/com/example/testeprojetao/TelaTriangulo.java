@@ -1,6 +1,9 @@
 package com.example.testeprojetao;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class TelaTriangulo extends AppCompatActivity {
+    Button trocaAssuntos;
+    Intent TelaAssuntos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,15 @@ public class TelaTriangulo extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        trocaAssuntos = findViewById(R.id.trocaassuntos);
+        TelaAssuntos = new Intent(this, MainScreen.class);
+        trocaAssuntos.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(TelaAssuntos);
+            }
         });
     }
 }
