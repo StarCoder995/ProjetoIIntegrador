@@ -48,9 +48,9 @@ public class QuestaoQuadrado extends AppCompatActivity {
         questions = new ArrayList<>(); //Lista das perguntas
 
         // Prox 3 linhas: Cria perguntas na lista de perguntas
-        questions.add(new Question("Qual é a capital da França?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Paris"));
-        questions.add(new Question("Qual é a capital da Espanha?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Madri"));
-        questions.add(new Question("Qual é a capital de Portugal?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Lisboa"));
+        questions.add(new Question("Qual é o nome da forma que possui quatro lados iguais?", Arrays.asList("Retângulo", "Quadrado", "Círculo", "Trapézio"), "Quadrado"));
+        questions.add(new Question("Se o lado de um quadrado mede 5 cm, qual é o perímetro?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "20cm"));
+        questions.add(new Question("Se um lado do quadrado mede 5 cm, qual é a área?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "25cm"));
 
         correctAnswers = new ArrayList<>();
         loadQuestion();
@@ -66,12 +66,7 @@ public class QuestaoQuadrado extends AppCompatActivity {
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
                         correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
-                        String result = "Correto!";
-                        resultTextView.setText(result);                                //Se sim, Afirma isso na caixa de resultado
-                    } else {
-                        resultTextView.setText("Incorreto! A resposta correta é " + currentQuestion.getCorrectAnswer() + ".");     //Se não, mostra a reposta correta na caixa de texto
                     }
-
                     currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
                     if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
                         loadQuestion();                             //Se sim, carrega a próxima
@@ -108,6 +103,5 @@ public class QuestaoQuadrado extends AppCompatActivity {
             for (Question question : correctAnswers) {
                 questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
             }
-            resultTextView.setText(questoesAcertadas.toString());
         }
 }
