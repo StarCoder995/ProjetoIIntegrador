@@ -52,15 +52,6 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
-        trocaTrapezio = findViewById(R.id.trocatrapezio);
-        TelaTrapezio = new Intent(MainScreen.this, TelaTrapezio.class);
-        trocaTrapezio.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaTrapezio);
-            }
-        });
-
         trocatriangulo = findViewById(R.id.trocatriangulo);
         TelaTriangulo = new Intent(MainScreen.this, TelaTriangulo.class);
         trocatriangulo.setOnClickListener(new View.OnClickListener(){
@@ -78,7 +69,6 @@ public class MainScreen extends AppCompatActivity {
                 startActivity(TelaHexagono);
             }
         });
-
 
 
 

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TesteProjetao"
         tools:targetApi="31">
         <activity
+            android:name=".QuestaoQuadrado"
+            android:exported="false" />
+        <activity
             android:name=".TelaHexagono"
             android:exported="false" />
         <activity
