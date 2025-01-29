@@ -104,10 +104,10 @@ public class QuestaoQuadrado extends AppCompatActivity {
         }
 
         private void showCorrectAnswers() {
-            StringBuilder correctAnswersText = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
+            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
             for (Question question : correctAnswers) {
-                correctAnswersText.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
+                questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
             }
-            resultTextView.setText(correctAnswersText.toString());
+            resultTextView.setText(questoesAcertadas.toString());
         }
 }
