@@ -12,8 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class TelaCirculo extends AppCompatActivity {
-    Button trocaAssuntos;
-    Intent TelaAssuntos;
+    Button trocaAssuntos,questaoCirculo;
+    Intent TelaAssuntos, telaQuestaoCirculo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +33,15 @@ public class TelaCirculo extends AppCompatActivity {
                 startActivity(TelaAssuntos);
             }
         });
+
+        questaoCirculo = findViewById(R.id.questaoCirculo);
+        telaQuestaoCirculo = new Intent(TelaCirculo.this, QuestaoCirculo.class);
+        questaoCirculo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(telaQuestaoCirculo);
+            }
+        });
+
     }
 }
