@@ -13,10 +13,13 @@
         android:theme="@style/Theme.TesteProjetao"
         tools:targetApi="31">
         <activity
-            android:name=".QuestaoCirculo"
+            android:name=".QuestaoRetangulo"
             android:exported="false" />
         <activity
             android:name=".QuestaoTriangulo"
+            android:exported="false" />
+        <activity
+            android:name=".QuestaoCirculo"
             android:exported="false" />
         <activity
             android:name=".QuestaoQuadrado"

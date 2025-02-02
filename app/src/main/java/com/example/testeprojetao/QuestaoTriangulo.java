@@ -1,6 +1,6 @@
 package com.example.testeprojetao;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -14,23 +14,26 @@ import android.widget.TextView;
 import android.widget.RadioGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.content.Intent;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class QuestaoTriangulo extends AppCompatActivity {
-
     private TextView questionTextView;
     private RadioGroup answersRadioGroup;
     private Button submitButton;
+    Intent TelaConteudo;
+    private Button voltarAoConteudo;
     private TextView resultTextView;
 
     private List<Question> questions;
     private int currentQuestionIndex = 0;   //Número da questão atual na lista
     private List<Question> correctAnswers;
 
-    @SuppressLint("MissingInflatedId")
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +45,12 @@ public class QuestaoTriangulo extends AppCompatActivity {
             return insets;
         });
 
+        // Sincronização de itens com os do xml
         questionTextView = findViewById(R.id.questionTextView);     // comando da questao
         answersRadioGroup = findViewById(R.id.answersRadioGroup);   // lista de respostas
         submitButton = findViewById(R.id.submitButton);             // botao de enviar
         resultTextView = findViewById(R.id.resultTextView);         // caixa de resultado
+        voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
 
         questions = new ArrayList<>(); //Lista das perguntas
 
@@ -81,6 +86,14 @@ public class QuestaoTriangulo extends AppCompatActivity {
             }
         });
 
+        voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
+        TelaConteudo = new Intent(this, TelaTriangulo.class);
+        voltarAoConteudo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(TelaConteudo);
+            }
+        });
     }
     private void loadQuestion(){
         //Linha a seguir: Carrega a questão atual, extraindo ela da lista com base no número dela
@@ -107,4 +120,3 @@ public class QuestaoTriangulo extends AppCompatActivity {
         }
     }
 }
-

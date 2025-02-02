@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.RadioGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.content.Intent;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class QuestaoQuadrado extends AppCompatActivity {
     private RadioGroup answersRadioGroup;
     private Button submitButton;
     private TextView resultTextView;
+    Intent TelaConteudo;
+    private Button voltarAoConteudo;
 
     private List<Question> questions;
     private int currentQuestionIndex = 0;   //Número da questão atual na lista
@@ -76,6 +79,15 @@ public class QuestaoQuadrado extends AppCompatActivity {
                 } else {
                     resultTextView.setText("Por favor, selecione uma resposta.");      //Resposta caso o user não tenha escolhido nada
                 }
+            }
+        });
+
+        voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
+        TelaConteudo = new Intent(this, TelaTriangulo.class);
+        voltarAoConteudo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(TelaConteudo);
             }
         });
 
