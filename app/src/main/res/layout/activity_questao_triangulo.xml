@@ -5,9 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
-    android:backgroundTint="@color/design_default_color_secondary"
-    tools:context=".QuestaoQuadrado">
+    tools:context=".QuestaoTriangulo">
 
     <ScrollView
         android:layout_width="411dp"
@@ -106,6 +104,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
 
+
             </RadioGroup>
 
             <Button
@@ -115,8 +114,6 @@
                 android:text="Voltar" />
 
         </LinearLayout>
-
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

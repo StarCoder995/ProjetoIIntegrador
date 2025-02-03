@@ -19,12 +19,13 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class QuestaoQuadrado extends AppCompatActivity {
+public class QuestaoRetangulo extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioGroup answersRadioGroup;
     private Button submitButton;
     private TextView resultTextView;
+
     Intent TelaConteudo;
     private Button voltarAoConteudo;
 
@@ -36,13 +37,13 @@ public class QuestaoQuadrado extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_questoes_quadrado);
+        setContentView(R.layout.activity_questao_retangulo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Sincronização de itens com os do xml
+
         questionTextView = findViewById(R.id.questionTextView);     // comando da questao
         answersRadioGroup = findViewById(R.id.answersRadioGroup);   // lista de respostas
         submitButton = findViewById(R.id.submitButton);             // botao de enviar
@@ -56,6 +57,7 @@ public class QuestaoQuadrado extends AppCompatActivity {
         questions.add(new Question("Se um lado do quadrado mede 5 cm, qual é a área?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "25cm"));
 
         correctAnswers = new ArrayList<>();
+
         loadQuestion();
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -83,38 +85,37 @@ public class QuestaoQuadrado extends AppCompatActivity {
         });
 
         voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
-        TelaConteudo = new Intent(this, TelaQuadrado.class);
+        TelaConteudo = new Intent(this, TelaRetangulo.class);
         voltarAoConteudo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 startActivity(TelaConteudo);
             }
         });
-
     }
-        private void loadQuestion(){
+    private void loadQuestion(){
         //Linha a seguir: Carrega a questão atual, extraindo ela da lista com base no número dela
-            Question currentQuestion = questions.get(currentQuestionIndex);
-            questionTextView.setText(currentQuestion.getQuestion()); // importa o titulo da questão
-            answersRadioGroup.clearCheck();
+        Question currentQuestion = questions.get(currentQuestionIndex);
+        questionTextView.setText(currentQuestion.getQuestion()); // importa o titulo da questão
+        answersRadioGroup.clearCheck();
             /*
             Descriçao do loop a seguir:
             - Cria uma Váriavel de navegaçao
             - Essa variável vai de zero até o último elemento da lista de respostas
             - Para cada posição, é criado um objeto pro botao das respostas, criado com o texto de resposta extraído
              */
-            for (int i = 0; i < currentQuestion.getAnswers().size(); i++) {
-                RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
-                radioButton.setText(currentQuestion.getAnswers().get(i));
-            }
-            resultTextView.setText("");
+        for (int i = 0; i < currentQuestion.getAnswers().size(); i++) {
+            RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
+            radioButton.setText(currentQuestion.getAnswers().get(i));
         }
+        resultTextView.setText("");
+    }
 
-        private void showCorrectAnswers() {
-            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
-            for (Question question : correctAnswers) {
-                questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
-            }
-            resultTextView.setText(questoesAcertadas);
+    private void showCorrectAnswers() {
+        StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
+        for (Question question : correctAnswers) {
+            questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
         }
+        resultTextView.setText(questoesAcertadas);
+    }
 }

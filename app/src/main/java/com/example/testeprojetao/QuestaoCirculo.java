@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class QuestaoQuadrado extends AppCompatActivity {
+public class QuestaoCirculo extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioGroup answersRadioGroup;
@@ -32,11 +32,12 @@ public class QuestaoQuadrado extends AppCompatActivity {
     private int currentQuestionIndex = 0;   //Número da questão atual na lista
     private List<Question> correctAnswers;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_questoes_quadrado);
+        setContentView(R.layout.activity_questao_circulo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -51,9 +52,9 @@ public class QuestaoQuadrado extends AppCompatActivity {
         questions = new ArrayList<>(); //Lista das perguntas
 
         // Prox 3 linhas: Cria perguntas na lista de perguntas
-        questions.add(new Question("Qual é o nome da forma que possui quatro lados iguais?", Arrays.asList("Retângulo", "Quadrado", "Círculo", "Trapézio"), "Quadrado"));
-        questions.add(new Question("Se o lado de um quadrado mede 5 cm, qual é o perímetro?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "20cm"));
-        questions.add(new Question("Se um lado do quadrado mede 5 cm, qual é a área?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "25cm"));
+        questions.add(new Question("Qual é a capital da França?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Paris"));
+        questions.add(new Question("Qual é a capital da Espanha?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Madri"));
+        questions.add(new Question("Qual é a capital de Portugal?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Lisboa"));
 
         correctAnswers = new ArrayList<>();
         loadQuestion();
@@ -69,7 +70,12 @@ public class QuestaoQuadrado extends AppCompatActivity {
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
                         correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
+                        String result = "Correto!";
+                        resultTextView.setText(result);                                //Se sim, Afirma isso na caixa de resultado
+                    } else {
+                        resultTextView.setText("Incorreto! A resposta correta é " + currentQuestion.getCorrectAnswer() + ".");     //Se não, mostra a reposta correta na caixa de texto
                     }
+
                     currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
                     if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
                         loadQuestion();                             //Se sim, carrega a próxima
@@ -83,7 +89,7 @@ public class QuestaoQuadrado extends AppCompatActivity {
         });
 
         voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
-        TelaConteudo = new Intent(this, TelaQuadrado.class);
+        TelaConteudo = new Intent(this, TelaCirculo.class);
         voltarAoConteudo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -91,30 +97,31 @@ public class QuestaoQuadrado extends AppCompatActivity {
             }
         });
 
+
     }
-        private void loadQuestion(){
+    private void loadQuestion(){
         //Linha a seguir: Carrega a questão atual, extraindo ela da lista com base no número dela
-            Question currentQuestion = questions.get(currentQuestionIndex);
-            questionTextView.setText(currentQuestion.getQuestion()); // importa o titulo da questão
-            answersRadioGroup.clearCheck();
+        Question currentQuestion = questions.get(currentQuestionIndex);
+        questionTextView.setText(currentQuestion.getQuestion()); // importa o titulo da questão
+        answersRadioGroup.clearCheck();
             /*
             Descriçao do loop a seguir:
             - Cria uma Váriavel de navegaçao
             - Essa variável vai de zero até o último elemento da lista de respostas
             - Para cada posição, é criado um objeto pro botao das respostas, criado com o texto de resposta extraído
              */
-            for (int i = 0; i < currentQuestion.getAnswers().size(); i++) {
-                RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
-                radioButton.setText(currentQuestion.getAnswers().get(i));
-            }
-            resultTextView.setText("");
+        for (int i = 0; i < currentQuestion.getAnswers().size(); i++) {
+            RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
+            radioButton.setText(currentQuestion.getAnswers().get(i));
         }
+        resultTextView.setText("");
+    }
 
-        private void showCorrectAnswers() {
-            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
-            for (Question question : correctAnswers) {
-                questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
-            }
-            resultTextView.setText(questoesAcertadas);
+    private void showCorrectAnswers() {
+        StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
+        for (Question question : correctAnswers) {
+            questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
         }
+        resultTextView.setText(questoesAcertadas);
+    }
 }

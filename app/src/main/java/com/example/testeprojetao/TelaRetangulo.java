@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.view.View;
 
 public class TelaRetangulo extends AppCompatActivity {
-    Button trocaAssuntos;
-    Intent TelaAssuntos;
+    Button trocaAssuntos, trocaQuestaoRetangulo;
+    Intent TelaAssuntos, telaQuestoesRetangulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,14 @@ public class TelaRetangulo extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(TelaAssuntos);
+            }
+        });
+        trocaQuestaoRetangulo = findViewById(R.id.trocaQuestaoRetangulo);
+        telaQuestoesRetangulo = new Intent(this, QuestaoRetangulo.class);
+        trocaQuestaoRetangulo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(telaQuestoesRetangulo);
             }
         });
 

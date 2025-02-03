@@ -12,8 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class TelaTriangulo extends AppCompatActivity {
-    Button trocaAssuntos;
-    Intent TelaAssuntos;
+    Button trocaAssuntos, trocaQuestaoTriangulo;
+    Intent TelaAssuntos,  telaQuestaoTriangulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,15 @@ public class TelaTriangulo extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(TelaAssuntos);
+            }
+        });
+
+        trocaQuestaoTriangulo = findViewById(R.id.trocaQuestaoTriangulo);
+        telaQuestaoTriangulo = new Intent(this, QuestaoTriangulo.class);
+        trocaQuestaoTriangulo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(telaQuestaoTriangulo);
             }
         });
     }
