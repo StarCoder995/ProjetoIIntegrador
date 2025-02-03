@@ -118,5 +118,6 @@ public class QuestaoTriangulo extends AppCompatActivity {
         for (Question question : correctAnswers) {
             questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
         }
+        resultTextView.setText(questoesAcertadas);
     }
 }

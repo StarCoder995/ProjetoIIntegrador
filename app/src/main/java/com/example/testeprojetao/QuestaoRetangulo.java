@@ -85,7 +85,7 @@ public class QuestaoRetangulo extends AppCompatActivity {
         });
 
         voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
-        TelaConteudo = new Intent(this, TelaTriangulo.class);
+        TelaConteudo = new Intent(this, TelaRetangulo.class);
         voltarAoConteudo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -116,5 +116,6 @@ public class QuestaoRetangulo extends AppCompatActivity {
         for (Question question : correctAnswers) {
             questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
         }
+        resultTextView.setText(questoesAcertadas);
     }
 }
