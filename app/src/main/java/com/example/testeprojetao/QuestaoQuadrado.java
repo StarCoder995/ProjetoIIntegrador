@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.content.Intent;
+import android.os.Handler;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -68,13 +69,17 @@ public class QuestaoQuadrado extends AppCompatActivity {
                     Question currentQuestion = questions.get(currentQuestionIndex);   //extrai a questão da lista , para ser usada Obs : Isso não entra em conflito com aquela do loadQuestion(), pois são objetos dentro de métodos, limitados a eles
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
-                        correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
+                        correctAnswers.add(currentQuestion);                            //Se sim, adiciona essa questão à lista de respondidas corretamente
+                        resultTextView.setText("Que Giro!");
                     }
-                    currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
-                    if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
-                        loadQuestion();                             //Se sim, carrega a próxima
+                    else{
+                        resultTextView.setText("Errou, mano");
+                    }
+                    currentQuestionIndex++;                             //Aumenta o número da questão a ser usada
+                    if (currentQuestionIndex < questions.size()) {      //Testa para ver se ainda estamos dentro da quantia de questões
+                        loadQuestion();                                 //Se sim, carrega a próxima
                     } else {
-                        showCorrectAnswers();                       //Se não, mostra as que foram acertadas
+                        showCorrectAnswers();                           //Se não, mostra as que foram acertadas
                     }
                 } else {
                     resultTextView.setText("Por favor, selecione uma resposta.");      //Resposta caso o user não tenha escolhido nada
@@ -107,7 +112,7 @@ public class QuestaoQuadrado extends AppCompatActivity {
                 RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
                 radioButton.setText(currentQuestion.getAnswers().get(i));
             }
-            resultTextView.setText("");
+            new Handler().postDelayed(() -> resultTextView.setText(""), 2000); //O Objeto Handler tem o metodo postDelayed, recebe uma expressão lambda q entrega a operação a ser atrasada e o tempo de atrasp
         }
 
         private void showCorrectAnswers() {
