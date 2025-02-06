@@ -57,7 +57,7 @@ public class QuestaoTriangulo extends AppCompatActivity {
         // Prox 3 linhas: Cria perguntas na lista de perguntas
         questions.add(new Question("Quantos lados tem um triângulo?", Arrays.asList("2", "3", "4", "5"), "3"));
         questions.add(new Question("Como é chamado um triângulo que possui os três lados iguais?", Arrays.asList("Isósceles", "Equilátero", "Escaleno", "Retângulo"), "Equilátero"));
-        questions.add(new Question("O tangram é um jogo oriental antigo, uma espécie de quebra-cabeça, constituído de sete peças. Quantos triângulos têm na imagem?", Arrays.asList("3 triângulos", "2 triângulos", "5 triângulos", "6 triângulos"), "5 triângulos"));
+        questions.add(new Question("O triângulo acima tem quantos centímetros de perímetro?", Arrays.asList("10cm", "20cm", "15cm", "20cm"), "15cm"));
 
         correctAnswers = new ArrayList<>();
         loadQuestion();

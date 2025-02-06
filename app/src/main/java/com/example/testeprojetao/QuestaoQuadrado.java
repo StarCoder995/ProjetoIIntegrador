@@ -68,12 +68,17 @@ public class QuestaoQuadrado extends AppCompatActivity {
                     Question currentQuestion = questions.get(currentQuestionIndex);   //extrai a questão da lista , para ser usada Obs : Isso não entra em conflito com aquela do loadQuestion(), pois são objetos dentro de métodos, limitados a eles
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
-                        correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
+                        resultTextView.setText(currentQuestion.getCorrectAnswer());
+                        //Se sim, adiciona essa questão à lista de respondidas corretamente
+                    } else {
+
+
                     }
                     currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
                     if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
                         loadQuestion();                             //Se sim, carrega a próxima
                     } else {
+
                         showCorrectAnswers();                       //Se não, mostra as que foram acertadas
                     }
                 } else {
