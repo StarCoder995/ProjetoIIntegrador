@@ -55,6 +55,8 @@ public class QuestaoCirculo extends AppCompatActivity {
        questions.add(new Question("O que é o raio de um círculo?", Arrays.asList(" A reta que liga o ponto central à superfície do círculo", "O ponto central do círculo", "A área interna do círculo", "A distância entre dois pontos do círculo"), "A reta que liga o ponto central à superfície do círculo"));
         questions.add(new Question("Quantas e quais figuras estão na imagem?", Arrays.asList("3 retângulos, 1 triângulo 2 círculos", "2 retângulos, 2 triângulo 2 círculos", "2 retângulos, 2 triângulo 4 círculos", "2 retângulos, 2 triângulo 4 círculos"), "2 retângulos, 2 triângulo 4 círculos"));
         questions.add(new Question("A reta que liga uma extremidade a outra no círculo chama-se?", Arrays.asList("raio", "diâmetro", "arco", "diagonal"), "diâmetro"));
+        questions.add(new Question("No jogo Zimbole, as crianças formam um círculo. Qual é o nome do ponto que fica exatamente no meio do círculo?  ", Arrays.asList("raio", "diâmetro", "centro", "circunferência"), "Centro"));
+        questions.add(new Question("Se em um círculo na brincadeira zimbole colocarmos uma linha imaginaria de uma extremidade a outra, qual seria o nome dessa linha?", Arrays.asList("raio", "diâmetro", "arco", "diagonal"), "diâmetro"));
 
 
         correctAnswers = new ArrayList<>();
