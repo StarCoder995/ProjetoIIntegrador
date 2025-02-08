@@ -52,9 +52,9 @@ public class QuestaoRetangulo extends AppCompatActivity {
         questions = new ArrayList<>(); //Lista das perguntas
 
         // Prox 3 linhas: Cria perguntas na lista de perguntas
-        questions.add(new Question("Qual é o nome da forma que possui quatro lados iguais?", Arrays.asList("Retângulo", "Quadrado", "Círculo", "Trapézio"), "Quadrado"));
-        questions.add(new Question("Se o lado de um quadrado mede 5 cm, qual é o perímetro?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "20cm"));
-        questions.add(new Question("Se um lado do quadrado mede 5 cm, qual é a área?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "25cm"));
+        questions.add(new Question("Quantos lados possui um retângulo?", Arrays.asList("2", "3", "4", "5"), "4"));
+        questions.add(new Question("Marque uma característica correta de um retângulo:", Arrays.asList("4 lados iguais", "Tem apenas 3 lados", "Tem 2 pares de lados iguais", "Todos os lados são diferentes"), "Tem 2 pares de lados iguais"));
+        questions.add(new Question("Um retângulo tem 10 cm de comprimento e 5 cm de largura. Qual é o seu perímetro?", Arrays.asList("17cm", "24cm", "30cm", "34cm"), "30cm"));
 
         correctAnswers = new ArrayList<>();
 
@@ -108,7 +108,7 @@ public class QuestaoRetangulo extends AppCompatActivity {
             RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
             radioButton.setText(currentQuestion.getAnswers().get(i));
         }
-        resultTextView.setText("");
+      new Handler().postDelayed(() -> resultTextView.setText(""), 2000); 
     }
 
     private void showCorrectAnswers() {
