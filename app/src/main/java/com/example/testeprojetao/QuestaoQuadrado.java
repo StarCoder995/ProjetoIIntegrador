@@ -55,7 +55,8 @@ public class QuestaoQuadrado extends AppCompatActivity {
         questions.add(new Question("Qual é o nome da forma que possui quatro lados iguais?", Arrays.asList("Retângulo", "Quadrado", "Círculo", "Trapézio"), "Quadrado"));
         questions.add(new Question("Se o lado de um quadrado mede 5 cm, qual é o perímetro?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "20cm"));
         questions.add(new Question("Se um lado do quadrado mede 5 cm, qual é a área?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "25cm"));
-
+        questions.add(new Question("No jogo de Tiro com Sementes, os alvos são quadrados. Quantos lados iguais tem um quadrado?", Arrays.asList("2", "3", "4", "5"), "4"));
+        questions.add(new Question("Se o lado de um dos quadrados desenhados no chão mede 2 metros, qual é a área desse quadrado?", Arrays.asList("4m", "6m", "8m", "10m"), "4m"));
         correctAnswers = new ArrayList<>();
         loadQuestion();
 
