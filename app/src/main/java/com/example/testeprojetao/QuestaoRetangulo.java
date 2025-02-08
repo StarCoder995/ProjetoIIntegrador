@@ -55,6 +55,8 @@ public class QuestaoRetangulo extends AppCompatActivity {
         questions.add(new Question("Quantos lados possui um retângulo?", Arrays.asList("2", "3", "4", "5"), "4"));
         questions.add(new Question("Marque uma característica correta de um retângulo:", Arrays.asList("4 lados iguais", "Tem apenas 3 lados", "Tem 2 pares de lados iguais", "Todos os lados são diferentes"), "Tem 2 pares de lados iguais"));
         questions.add(new Question("Um retângulo tem 10 cm de comprimento e 5 cm de largura. Qual é o seu perímetro?", Arrays.asList("17cm", "24cm", "30cm", "34cm"), "30cm"));
+        questions.add(new Question("No jogo Ampe, o espaço delimitado no chão é formado por dois retângulos. Qual das opções abaixo é verdadeira sobre os lados opostos de um retângulo?", Arrays.asList("Eles têm tamanhos diferentes.", "Eles têm o mesmo tamanho", "São sempre menores que o comprimento do retângulo.", "Os lados opostos formam um triângulo."), "Eles têm o mesmo tamanho"));
+        questions.add(new Question("No Ampe, um retângulo no chão tem 4 metros de comprimento e 2 metros de largura. Qual é o perímetro desse retângulo?", Arrays.asList("8m", "12m", "14m", "16m"), "12m"));
 
         correctAnswers = new ArrayList<>();
 
