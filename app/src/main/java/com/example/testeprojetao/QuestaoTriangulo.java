@@ -55,9 +55,10 @@ public class QuestaoTriangulo extends AppCompatActivity {
         questions = new ArrayList<>(); //Lista das perguntas
 
         // Prox 3 linhas: Cria perguntas na lista de perguntas
-        questions.add(new Question("Qual é o nome da forma que possui quatro lados iguais?", Arrays.asList("Retângulo", "Quadrado", "Círculo", "Trapézio"), "Quadrado"));
-        questions.add(new Question("Se o lado de um quadrado mede 5 cm, qual é o perímetro?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "20cm"));
-        questions.add(new Question("Se um lado do quadrado mede 5 cm, qual é a área?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "25cm"));
+        questions.add(new Question("Quantos lados tem um triângulo?", Arrays.asList("2", "3", "4", "5"), "3"));
+        questions.add(new Question("Como é chamado um triângulo que possui os três lados iguais?", Arrays.asList("Isósceles", "Equilátero", "Escaleno", "Retângulo"), "Equilátero"));
+        questions.add(new Question("O triângulo acima tem quantos centímetros de perímetro?", Arrays.asList("10cm", "20cm", "15cm", "20cm"), "15cm"));
+
 
         correctAnswers = new ArrayList<>();
         loadQuestion();
@@ -72,7 +73,11 @@ public class QuestaoTriangulo extends AppCompatActivity {
                     Question currentQuestion = questions.get(currentQuestionIndex);   //extrai a questão da lista , para ser usada Obs : Isso não entra em conflito com aquela do loadQuestion(), pois são objetos dentro de métodos, limitados a eles
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
-                        correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
+                        correctAnswers.add(currentQuestion); 
+                        resultTextView.setText("Que Giro!");
+                    }
+                    else{
+                        resultTextView.setText("Errou, mano");
                     }
                     currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
                     if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
@@ -110,7 +115,7 @@ public class QuestaoTriangulo extends AppCompatActivity {
             RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
             radioButton.setText(currentQuestion.getAnswers().get(i));
         }
-        resultTextView.setText("");
+        new Handler().postDelayed(() -> resultTextView.setText(""), 2000);
     }
 
     private void showCorrectAnswers() {
