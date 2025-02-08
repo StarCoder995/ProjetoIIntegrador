@@ -52,9 +52,10 @@ public class QuestaoCirculo extends AppCompatActivity {
         questions = new ArrayList<>(); //Lista das perguntas
 
         // Prox 3 linhas: Cria perguntas na lista de perguntas
-        questions.add(new Question("Qual é a capital da França?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Paris"));
-        questions.add(new Question("Qual é a capital da Espanha?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Madri"));
-        questions.add(new Question("Qual é a capital de Portugal?", Arrays.asList("Berlim", "Madri", "Paris", "Lisboa"), "Lisboa"));
+       questions.add(new Question("O que é o raio de um círculo?", Arrays.asList(" A reta que liga o ponto central à superfície do círculo", "O ponto central do círculo", "A área interna do círculo", "A distância entre dois pontos do círculo"), "A reta que liga o ponto central à superfície do círculo"));
+        questions.add(new Question("Quantas e quais figuras estão na imagem?", Arrays.asList("3 retângulos, 1 triângulo 2 círculos", "2 retângulos, 2 triângulo 2 círculos", "2 retângulos, 2 triângulo 4 círculos", "2 retângulos, 2 triângulo 4 círculos"), "2 retângulos, 2 triângulo 4 círculos"));
+        questions.add(new Question("A reta que liga uma extremidade a outra no círculo chama-se?", Arrays.asList("raio", "diâmetro", "arco", "diagonal"), "diâmetro"));
+
 
         correctAnswers = new ArrayList<>();
         loadQuestion();
@@ -70,10 +71,9 @@ public class QuestaoCirculo extends AppCompatActivity {
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
                         correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
-                        String result = "Correto!";
-                        resultTextView.setText(result);                                //Se sim, Afirma isso na caixa de resultado
+                         resultTextView.setText("Que Giro!");                                //Se sim, Afirma isso na caixa de resultado
                     } else {
-                        resultTextView.setText("Incorreto! A resposta correta é " + currentQuestion.getCorrectAnswer() + ".");     //Se não, mostra a reposta correta na caixa de texto
+                        resultTextView.setText("Errou, mano");
                     }
 
                     currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
@@ -114,7 +114,7 @@ public class QuestaoCirculo extends AppCompatActivity {
             RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
             radioButton.setText(currentQuestion.getAnswers().get(i));
         }
-        resultTextView.setText("");
+         new Handler().postDelayed(() -> resultTextView.setText(""), 2000); //O Objeto Handler tem o metodo postDelayed, recebe uma expressão lambda q entrega a operação a ser atrasada e o tempo de atrasp
     }
 
     private void showCorrectAnswers() {
