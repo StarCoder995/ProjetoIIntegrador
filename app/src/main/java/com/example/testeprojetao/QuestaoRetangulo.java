@@ -70,7 +70,11 @@ public class QuestaoRetangulo extends AppCompatActivity {
                     Question currentQuestion = questions.get(currentQuestionIndex);   //extrai a questão da lista , para ser usada Obs : Isso não entra em conflito com aquela do loadQuestion(), pois são objetos dentro de métodos, limitados a eles
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
-                        correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
+                        correctAnswers.add(currentQuestion);  
+                        resultTextView.setText("Que Giro!");                                //Se sim, Afirma isso na caixa de resultado
+                    } 
+                    else {
+                        resultTextView.setText("Errou, mano");
                     }
                     currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
                     if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
