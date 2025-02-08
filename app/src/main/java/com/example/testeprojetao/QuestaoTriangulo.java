@@ -58,6 +58,8 @@ public class QuestaoTriangulo extends AppCompatActivity {
         questions.add(new Question("Quantos lados tem um triângulo?", Arrays.asList("2", "3", "4", "5"), "3"));
         questions.add(new Question("Como é chamado um triângulo que possui os três lados iguais?", Arrays.asList("Isósceles", "Equilátero", "Escaleno", "Retângulo"), "Equilátero"));
         questions.add(new Question("O triângulo acima tem quantos centímetros de perímetro?", Arrays.asList("10cm", "20cm", "15cm", "20cm"), "15cm"));
+        questions.add(new Question("No jogo Nyanga, as crianças dançam dentro de triângulos desenhados no chão. Qual é a soma de todos os lados de dois triagulos? ", Arrays.asList("9", "6", "3", "10"), "6"));
+        questions.add(new Question("Se um triângulo desenhado no chão tem dois lados medindo 3 metros cada e o terceiro lado medindo 2 metros, qual é o tipo desse triângulo?", Arrays.asList("Equilátero", "Isósceles", "Escaleno", "Retângulo"), "Isósceles"));
 
 
         correctAnswers = new ArrayList<>();
