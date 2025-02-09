@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.content.Intent;
+import android.os.Handler;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class QuestaoTriangulo extends AppCompatActivity {
     private Button submitButton;
     Intent TelaConteudo;
     private Button voltarAoConteudo;
+    int cont = 0;
     private TextView resultTextView;
 
     private List<Question> questions;
@@ -117,14 +119,20 @@ public class QuestaoTriangulo extends AppCompatActivity {
             RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
             radioButton.setText(currentQuestion.getAnswers().get(i));
         }
-        new Handler().postDelayed(() -> resultTextView.setText(""), 2000);
+        new Handler().postDelayed(() -> resultTextView.setText(""), 3000);
     }
 
     private void showCorrectAnswers() {
-        StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
-        for (Question question : correctAnswers) {
-            questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
+        if(cont<3) {
+            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" +"Podemos melhorar na próxima");
+            resultTextView.setText(questoesAcertadas);
         }
-        resultTextView.setText(questoesAcertadas);
+        else{
+            if(cont>=3){
+                StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" +"PARABÉNS");
+                resultTextView.setText(questoesAcertadas);
+            }
+        }
+        submitButton.setVisibility(View.INVISIBLE);
     }
 }

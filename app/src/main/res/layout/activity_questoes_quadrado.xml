@@ -27,13 +27,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="385dp"
-                android:layout_height="117dp"
-                android:layout_marginLeft="15dp"
-                android:text="Quadrado O quadrado é um polígono de quatro lados iguais e quatro ângulos internos retos (90°). Lado( l ): É a medida de qualquer uma das quatro linhas que formam o quadrado. Todos os lados têm o mesmo comprimento.  Perímetro( p ): É o comprimento total do contorno do quadrado, ou seja, a soma de todos os seus lados. A formula do perímetro é dada por (  P=4⋅l  ) Área( A ): É a quantidade de espaço que o quadrado ocupa dentro de suas bordas. A formula da Area é dada por (  A=l2 ) " />
-
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
@@ -99,11 +92,11 @@
 
             <TextView
                 android:id="@+id/resultTextView"
-                android:text="Resultado"
                 android:layout_width="401dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="272dp"
+                android:textColor="#4B4B4B"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +106,7 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="135dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="20dp"
                 android:text="Voltar" />
 
         </LinearLayout>

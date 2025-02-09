@@ -28,7 +28,7 @@ public class QuestaoQuadrado extends AppCompatActivity {
     private TextView resultTextView;
     Intent TelaConteudo;
     private Button voltarAoConteudo;
-
+    int cont = 0;
     private List<Question> questions;
     private int currentQuestionIndex = 0;   //Número da questão atual na lista
     private List<Question> correctAnswers;
@@ -50,7 +50,6 @@ public class QuestaoQuadrado extends AppCompatActivity {
         resultTextView = findViewById(R.id.resultTextView);         // caixa de resultado
 
         questions = new ArrayList<>(); //Lista das perguntas
-
         // Prox 3 linhas: Cria perguntas na lista de perguntas
         questions.add(new Question("Qual é o nome da forma que possui quatro lados iguais?", Arrays.asList("Retângulo", "Quadrado", "Círculo", "Trapézio"), "Quadrado"));
         questions.add(new Question("Se o lado de um quadrado mede 5 cm, qual é o perímetro?", Arrays.asList("10cm", "15cm", "20cm", "25cm"), "20cm"));
@@ -59,7 +58,6 @@ public class QuestaoQuadrado extends AppCompatActivity {
         questions.add(new Question("Se o lado de um dos quadrados desenhados no chão mede 2 metros, qual é a área desse quadrado?", Arrays.asList("4m", "6m", "8m", "10m"), "4m"));
         correctAnswers = new ArrayList<>();
         loadQuestion();
-
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +70,7 @@ public class QuestaoQuadrado extends AppCompatActivity {
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
                         correctAnswers.add(currentQuestion);                            //Se sim, adiciona essa questão à lista de respondidas corretamente
                         resultTextView.setText("Que Giro!");
+                        cont++;
                     }
                     else{
                         resultTextView.setText("Errou, mano");
@@ -87,7 +86,6 @@ public class QuestaoQuadrado extends AppCompatActivity {
                 }
             }
         });
-
         voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
         TelaConteudo = new Intent(this, TelaQuadrado.class);
         voltarAoConteudo.setOnClickListener(new View.OnClickListener(){
@@ -98,8 +96,8 @@ public class QuestaoQuadrado extends AppCompatActivity {
         });
 
     }
-        private void loadQuestion(){
-        //Linha a seguir: Carrega a questão atual, extraindo ela da lista com base no número dela
+        private void loadQuestion() {
+            //Linha a seguir: Carrega a questão atual, extraindo ela da lista com base no número dela
             Question currentQuestion = questions.get(currentQuestionIndex);
             questionTextView.setText(currentQuestion.getQuestion()); // importa o titulo da questão
             answersRadioGroup.clearCheck();
@@ -113,14 +111,19 @@ public class QuestaoQuadrado extends AppCompatActivity {
                 RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
                 radioButton.setText(currentQuestion.getAnswers().get(i));
             }
-            new Handler().postDelayed(() -> resultTextView.setText(""), 2000); //O Objeto Handler tem o metodo postDelayed, recebe uma expressão lambda q entrega a operação a ser atrasada e o tempo de atrasp
+            new Handler().postDelayed(() -> resultTextView.setText(""), 4000); //O Objeto Handler tem o metodo postDelayed, recebe uma expressão lambda q entrega a operação a ser atrasada e o tempo de atrasp
         }
-
         private void showCorrectAnswers() {
-            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente as seguintes perguntas:\n");
-            for (Question question : correctAnswers) {
-                questoesAcertadas.append(question.getQuestion()).append(" - Resposta correta: ").append(question.getCorrectAnswer()).append("\n");
-            }
+        if(cont<3) {
+            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" +"Podemos melhorar na próxima");
             resultTextView.setText(questoesAcertadas);
+        }
+        else{
+            if(cont>=3){
+                StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" +"PARABÉNS");
+                resultTextView.setText(questoesAcertadas);
+            }
+        }
+            submitButton.setVisibility(View.INVISIBLE);
         }
 }
