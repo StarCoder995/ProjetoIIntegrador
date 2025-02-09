@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Borda roxa escura -->
+    <stroke
+        android:width="4dp"
+        android:color="#2A1A4D"/> <!-- Cor roxa escura -->
+        <corners android:radius="30dp"/>
+    <!-- Fundo transparente -->
+    <solid android:color="@android:color/transparent"/>
+</shape>

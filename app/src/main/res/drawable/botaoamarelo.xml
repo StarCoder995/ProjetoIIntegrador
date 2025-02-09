@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Camada externa do botão (borda roxa escura) -->
+    <!-- Parte principal do botão (amarela) -->
+    <item android:insetLeft="4dp" android:insetTop="4dp" android:insetRight="4dp" android:insetBottom="4dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#F4C73C"/> <!-- Cor amarela do botão -->
+            <corners android:radius="40dp"/>
+        </shape>
+    </item>
+
+    <!-- Parte interna "afundada" no botão -->
+    <item android:insetLeft="15dp" android:insetTop="15dp" android:insetRight="15dp" android:insetBottom="15dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E5B634"/> <!-- Cor um pouco mais escura que o amarelo externo -->
+            <corners android:radius="30dp"/>
+        </shape>
+    </item>
+
+</layer-list>

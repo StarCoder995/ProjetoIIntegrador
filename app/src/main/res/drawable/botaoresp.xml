@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Parte interna "afundada" no botão -->
+    <item android:insetLeft="15dp" android:insetTop="15dp" android:insetRight="15dp" android:insetBottom="15dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#C7E189"/> <!-- Cor um pouco mais escura que o amarelo externo -->
+            <corners android:radius="100dp"/>
+        </shape>
+    </item>
+
+</layer-list>
