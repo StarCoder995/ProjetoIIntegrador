@@ -10,10 +10,11 @@ import androidx.core.view.WindowInsetsCompat;
 import android.content.Intent;
 import android.widget.Button;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class MainScreen extends AppCompatActivity {
-    Button trocaquadrado,trocaretangulo,trocacirculo,trocaTrapezio,trocatriangulo, trocahexagono;
-    Intent TelaQuadrado,TelaRetangulo,TelaCirculo,TelaTrapezio,TelaTriangulo, TelaHexagono;
+    ImageButton trocaquadrado,trocaretangulo,trocacirculo,trocatriangulo;
+    Intent TelaQuadrado,TelaRetangulo,TelaCirculo,TelaTriangulo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,43 +25,24 @@ public class MainScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    public void trocatriangulo(View v) {
+        Intent in = new Intent(MainScreen.this, TelaTriangulo.class);
+        startActivity(in);
+    }
 
-        trocaquadrado = findViewById(R.id.trocaquadrado);
-        TelaQuadrado = new Intent(MainScreen.this, TelaQuadrado.class);
-        trocaquadrado.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaQuadrado);
-            }
-        });
+    public void trocaquadrado(View v) {
+        Intent in = new Intent(MainScreen.this, TelaQuadrado.class);
+        startActivity(in);
+    }
 
-        trocaretangulo = findViewById(R.id.trocaretangulo);
-        TelaRetangulo = new Intent(MainScreen.this, TelaRetangulo.class);
-        trocaretangulo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaRetangulo);
-            }
-        });
+    public void trocaretangulo(View v) {
+        Intent in = new Intent(MainScreen.this, TelaRetangulo.class);
+        startActivity(in);
+    }
 
-        trocacirculo = findViewById(R.id.trocacirculo);
-        TelaCirculo = new Intent(MainScreen.this, TelaCirculo.class);
-        trocacirculo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaCirculo);
-            }
-        });
-
-        trocatriangulo = findViewById(R.id.trocatriangulo);
-        TelaTriangulo = new Intent(MainScreen.this, TelaTriangulo.class);
-        trocatriangulo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaTriangulo);
-            }
-        });
-
-
+    public void trocacirculo(View v) {
+        Intent in = new Intent(MainScreen.this, TelaCirculo.class);
+        startActivity(in);
     }
 }
