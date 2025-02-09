@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class TelaCirculo extends AppCompatActivity {
-    Button trocaAssuntos,questaoCirculo;
+    ImageButton trocaAssuntos,questaoCirculo;
     Intent TelaAssuntos, telaQuestaoCirculo;
 
     @Override
@@ -25,23 +26,15 @@ public class TelaCirculo extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        trocaAssuntos = findViewById(R.id.trocaassuntos);
-        TelaAssuntos = new Intent(this, MainScreen.class);
-        trocaAssuntos.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaAssuntos);
-            }
-        });
+    }
 
-        questaoCirculo = findViewById(R.id.questaoCirculo);
-        telaQuestaoCirculo = new Intent(TelaCirculo.this, QuestaoCirculo.class);
-        questaoCirculo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(telaQuestaoCirculo);
-            }
-        });
+    public void trocaAssuntos(View v) {
+        Intent in = new Intent(TelaCirculo.this, MainScreen.class);
+        startActivity(in);
+    }
 
+    public void questaoCirculo(View v) {
+        Intent in = new Intent(TelaCirculo.this, QuestaoCirculo.class);
+        startActivity(in);
     }
 }

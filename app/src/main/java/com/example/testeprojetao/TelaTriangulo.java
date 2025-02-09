@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class TelaTriangulo extends AppCompatActivity {
-    Button trocaAssuntos, trocaQuestaoTriangulo;
+    ImageButton trocaAssuntos, trocaQuestaoTriangulo;
     Intent TelaAssuntos,  telaQuestaoTriangulo;
 
     @Override
@@ -25,23 +26,15 @@ public class TelaTriangulo extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
 
-        trocaAssuntos = findViewById(R.id.trocaassuntos);
-        TelaAssuntos = new Intent(this, MainScreen.class);
-        trocaAssuntos.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaAssuntos);
-            }
-        });
+        public void trocaAssuntos(View v) {
+            Intent in = new Intent(TelaTriangulo.this, MainScreen.class);
+            startActivity(in);
+        }
 
-        trocaQuestaoTriangulo = findViewById(R.id.trocaQuestaoTriangulo);
-        telaQuestaoTriangulo = new Intent(this, QuestaoTriangulo.class);
-        trocaQuestaoTriangulo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(telaQuestaoTriangulo);
-            }
-        });
+    public void trocaQuestaoTriangulo(View v) {
+        Intent in = new Intent(TelaTriangulo.this, QuestaoTriangulo.class);
+        startActivity(in);
     }
 }
