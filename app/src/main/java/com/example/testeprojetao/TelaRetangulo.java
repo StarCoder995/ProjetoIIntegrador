@@ -25,23 +25,14 @@ public class TelaRetangulo extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    public void trocaAssuntos(View v) {
+        Intent in = new Intent(TelaRetangulo.this, MainScreen.class);
+        startActivity(in);
+    }
 
-        trocaAssuntos = findViewById(R.id.trocaassuntos);
-        TelaAssuntos = new Intent(this, MainScreen.class);
-        trocaAssuntos.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(TelaAssuntos);
-            }
-        });
-        trocaQuestaoRetangulo = findViewById(R.id.trocaQuestaoRetangulo);
-        telaQuestoesRetangulo = new Intent(this, QuestaoRetangulo.class);
-        trocaQuestaoRetangulo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(telaQuestoesRetangulo);
-            }
-        });
-
+    public void TrocaQuestaoRetangulo(View v) {
+        Intent in = new Intent(TelaRetangulo.this, QuestaoRetangulo.class);
+        startActivity(in);
     }
 }

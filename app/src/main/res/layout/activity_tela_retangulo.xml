@@ -70,7 +70,7 @@
         android:fontFamily="@font/forum"
         android:gravity="center"
         android:padding="5px"
-        android:text="Diagonal( d ): É a linha reta que liga dois cantos opostos do retângulo, passando pelo centro. A formula da diagonal é dada por (d = √(a² + b²)"
+        android:text="Diagonal( d ): É a linha reta que liga dois cantos opostos do retângulo, passando pelo centro."
         android:textAlignment="center"
         android:textColor="#050505"
         android:textSize="12sp"
@@ -233,11 +233,11 @@
         app:layout_constraintVertical_bias="0.007" />
 
     <ImageButton
-        android:id="@+id/questaoCirculo"
+        android:id="@+id/questaoRetangulo"
         android:layout_width="173dp"
         android:layout_height="53dp"
         android:background="@drawable/botaoexercicio"
-        android:onClick="questaoCirculo"
+        android:onClick="TrocaQuestaoRetangulo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -301,17 +301,25 @@
         android:id="@+id/imageView7"
         android:layout_width="170dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/retangulo_exemplo1"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="492dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.779"
+        app:srcCompat="@drawable/retangulo_exemplo1" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="170dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/retangulo_exemplo2"
-        tools:layout_editor_absoluteX="225dp"
-        tools:layout_editor_absoluteY="492dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.779"
+        app:srcCompat="@drawable/retangulo_exemplo2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

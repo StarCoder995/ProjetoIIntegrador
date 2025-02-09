@@ -75,7 +75,8 @@ public class QuestaoRetangulo extends AppCompatActivity {
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
                         correctAnswers.add(currentQuestion);  
-                        resultTextView.setText("Que Giro!");                                //Se sim, Afirma isso na caixa de resultado
+                        resultTextView.setText("Que Giro!");
+                        cont++;//Se sim, Afirma isso na caixa de resultado
                     } 
                     else {
                         resultTextView.setText("Errou, mano");

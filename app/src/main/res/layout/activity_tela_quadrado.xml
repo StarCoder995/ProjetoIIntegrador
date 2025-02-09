@@ -233,11 +233,11 @@
         app:layout_constraintVertical_bias="0.007" />
 
     <ImageButton
-        android:id="@+id/questaoCirculo"
+        android:id="@+id/trocaQuestao"
         android:layout_width="173dp"
         android:layout_height="53dp"
         android:background="@drawable/botaoexercicio"
-        android:onClick="questaoCirculo"
+        android:onClick="trocaQuestao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -300,9 +300,13 @@
         android:id="@+id/imageView4"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/quadrado_exemplo"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="468dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.805"
+        app:srcCompat="@drawable/quadrado_exemplo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

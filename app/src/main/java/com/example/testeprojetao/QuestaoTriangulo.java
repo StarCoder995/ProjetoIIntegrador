@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 // Imports Utilizados
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.RadioGroup;
 import android.widget.Button;
@@ -24,10 +25,12 @@ import java.util.Arrays;
 public class QuestaoTriangulo extends AppCompatActivity {
     private TextView questionTextView;
     private RadioGroup answersRadioGroup;
-    private Button submitButton;
+    private ImageButton submitButton;
     Intent TelaConteudo;
-    private Button voltarAoConteudo;
+    private ImageButton voltarAoConteudo;
     int cont = 0;
+
+    private TextView enviar;
     private TextView resultTextView;
 
     private List<Question> questions;
@@ -53,6 +56,7 @@ public class QuestaoTriangulo extends AppCompatActivity {
         submitButton = findViewById(R.id.submitButton);             // botao de enviar
         resultTextView = findViewById(R.id.resultTextView);         // caixa de resultado
         voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
+        enviar = findViewById(R.id.enviar);
 
         questions = new ArrayList<>(); //Lista das perguntas
 
@@ -79,6 +83,7 @@ public class QuestaoTriangulo extends AppCompatActivity {
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
                         correctAnswers.add(currentQuestion); 
                         resultTextView.setText("Que Giro!");
+                        cont++;
                     }
                     else{
                         resultTextView.setText("Errou, mano");
@@ -128,11 +133,10 @@ public class QuestaoTriangulo extends AppCompatActivity {
             resultTextView.setText(questoesAcertadas);
         }
         else{
-            if(cont>=3){
-                StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" +"PARABÉNS");
-                resultTextView.setText(questoesAcertadas);
-            }
+            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" + "PARABÉNS");
+            resultTextView.setText(questoesAcertadas);
         }
         submitButton.setVisibility(View.INVISIBLE);
+        enviar.setVisibility(View.INVISIBLE);
     }
 }

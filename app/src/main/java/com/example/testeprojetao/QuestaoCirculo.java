@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 // Imports Utilizados
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.RadioGroup;
 import android.widget.Button;
@@ -24,11 +25,12 @@ public class QuestaoCirculo extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioGroup answersRadioGroup;
-    private Button submitButton;
+    private ImageButton submitButton;
     private TextView resultTextView;
     Intent TelaConteudo;
-    private Button voltarAoConteudo;
+    private ImageButton voltarAoConteudo;
     int cont = 0;
+    private TextView enviar;
     private List<Question> questions;
     private int currentQuestionIndex = 0;   //Número da questão atual na lista
     private List<Question> correctAnswers;
@@ -48,15 +50,16 @@ public class QuestaoCirculo extends AppCompatActivity {
         questionTextView = findViewById(R.id.questionTextView);     // comando da questao
         answersRadioGroup = findViewById(R.id.answersRadioGroup);   // lista de respostas
         submitButton = findViewById(R.id.submitButton);             // botao de enviar
-        resultTextView = findViewById(R.id.resultTextView);         // caixa de resultado
+        resultTextView = findViewById(R.id.resultTextView);
+        enviar = findViewById(R.id.enviar);// caixa de resultado
 
         questions = new ArrayList<>(); //Lista das perguntas
 
         // Prox 3 linhas: Cria perguntas na lista de perguntas
-       questions.add(new Question("O que é o raio de um círculo?", Arrays.asList(" A reta que liga o ponto central à superfície do círculo", "O ponto central do círculo", "A área interna do círculo", "A distância entre dois pontos do círculo"), "A reta que liga o ponto central à superfície do círculo"));
+       questions.add(new Question("O que é o raio de um círculo?", Arrays.asList("A reta que liga o ponto central à superfície do círculo", "O ponto central do círculo", "A área interna do círculo", "A distância entre dois pontos do círculo"), "A reta que liga o ponto central à superfície do círculo"));
         questions.add(new Question("Quantas e quais figuras estão na imagem?", Arrays.asList("3 retângulos, 1 triângulo 2 círculos", "2 retângulos, 2 triângulo 2 círculos", "2 retângulos, 2 triângulo 4 círculos", "2 retângulos, 2 triângulo 4 círculos"), "2 retângulos, 2 triângulo 4 círculos"));
         questions.add(new Question("A reta que liga uma extremidade a outra no círculo chama-se?", Arrays.asList("raio", "diâmetro", "arco", "diagonal"), "diâmetro"));
-        questions.add(new Question("No jogo Zimbole, as crianças formam um círculo. Qual é o nome do ponto que fica exatamente no meio do círculo?  ", Arrays.asList("raio", "diâmetro", "centro", "circunferência"), "Centro"));
+        questions.add(new Question("No jogo Zimbole, as crianças formam um círculo. Qual é o nome do ponto que fica exatamente no meio do círculo?  ", Arrays.asList("raio", "diâmetro", "centro", "circunferência"), "centro"));
         questions.add(new Question("Se em um círculo na brincadeira zimbole colocarmos uma linha imaginaria de uma extremidade a outra, qual seria o nome dessa linha?", Arrays.asList("raio", "diâmetro", "arco", "diagonal"), "diâmetro"));
 
 
@@ -74,7 +77,8 @@ public class QuestaoCirculo extends AppCompatActivity {
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
                         correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
-                         resultTextView.setText("Que Giro!");                                //Se sim, Afirma isso na caixa de resultado
+                         resultTextView.setText("Que Giro!");
+                        cont++; //Se sim, Afirma isso na caixa de resultado
                     } else {
                         resultTextView.setText("Errou, mano");
                     }
@@ -126,11 +130,10 @@ public class QuestaoCirculo extends AppCompatActivity {
             resultTextView.setText(questoesAcertadas);
         }
         else{
-            if(cont>=3){
-                StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" +"PARABÉNS");
-                resultTextView.setText(questoesAcertadas);
-            }
+            StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" + "PARABÉNS");
+            resultTextView.setText(questoesAcertadas);
         }
         submitButton.setVisibility(View.INVISIBLE);
+        enviar.setVisibility(View.INVISIBLE);
     }
 }
