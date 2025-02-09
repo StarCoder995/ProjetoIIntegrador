@@ -9,34 +9,85 @@
     android:backgroundTint="@color/design_default_color_secondary"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/TituloApp"
-        android:layout_width="223dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="92dp"
-        android:text="Nome Do Aplicativo"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="128dp"
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/paginareduzida"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/troca1"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="456dp"
-        android:layout_marginEnd="152dp"
-        android:text="vamos lá"
+        android:text="MATEMÁFRICA"
+        android:letterSpacing="0.2"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.2"
+        android:text="GEOMETRIA SEM FRONTEIRAS"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468" />
+
+
+    <ImageButton
+        android:layout_width="146dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="548dp"
+        android:layout_marginEnd="128dp"
+        android:background="@drawable/botaoamarelo"
+        android:onClick="iniciar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/iniciar"
+        android:layout_width="144dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="548dp"
+        android:layout_marginEnd="132dp"
+        android:background="@drawable/bordaroxa"
+        android:onClick="iniciar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="88dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="556dp"
+        android:layout_marginEnd="148dp"
+        android:onClick="iniciar"
+        android:text="INICIAR"
+        android:textColor="#2A1A4D"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
