@@ -10,9 +10,10 @@ import androidx.core.view.WindowInsetsCompat;
 import android.content.Intent;
 import android.widget.Button;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
-    Button troca1;
+    ImageButton iniciar;
     Intent tela1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +25,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        troca1 = findViewById(R.id.troca1);
-        tela1 = new Intent(MainActivity.this, MainScreen.class);
-        troca1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(tela1);
-            }
-        });
+    }
+    public void iniciar (View v){
+        Intent in = new Intent(MainActivity.this, MainScreen.class);
+        startActivity(in);
     }
 }
