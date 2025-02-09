@@ -5,38 +5,304 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
-    android:backgroundTint="@color/design_default_color_secondary"
+    android:background="#C1FF72"
     tools:context=".TelaQuadrado">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="204dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="104dp"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:text="Quadrado"
+
+    <ImageButton
+        android:id="@+id/fundotranspa"
+        android:layout_width="397dp"
+        android:layout_height="211dp"
+        android:background="@drawable/fundotranp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/trianguloamareloassunto3"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:background="@drawable/botaoassuntosamarelo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.477" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:fontFamily="@font/forum"
+        android:gravity="center"
+        android:padding="5px"
+        android:text="Área( A ): É a quantidade de espaço que o quadrado ocupa dentro de suas bordas. A formula da Area é dada por (  A=l2 )"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479" />
+
+    <ImageButton
+        android:id="@+id/trianguloamareloassunto4"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:background="@drawable/botaoassuntosamarelo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:fontFamily="@font/forum"
+        android:gravity="center"
+        android:padding="5px"
+        android:text="Diagonal( d ): É a linha reta que liga dois cantos opostos do quadrado, passando pelo centro. A formula da Area é dada por (  𝑑=l.√2 )"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479" />
+
+    <ImageButton
+        android:id="@+id/trianguloamareloassunto1"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:background="@drawable/botaoassuntosamarelo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.34" />
+
+    <ImageButton
+        android:id="@+id/trianguloamareloassunto2"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:background="@drawable/botaoassuntosamarelo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.339" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:fontFamily="@font/forum"
+        android:gravity="center"
+        android:padding="5px"
+        android:text="Perímetro( p ): É o comprimento total do contorno do quadrado, ou seja, a soma de todos os seus lados. A formula do perímetro é dada por (  P=4⋅l  )"
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.339" />
+
+    <ImageButton
+        android:id="@+id/fundotranspaex"
+        android:layout_width="402dp"
+        android:layout_height="195dp"
+        android:background="@drawable/fundotranp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/forum"
+        android:text="Exemplos:"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <ImageButton
+        android:id="@+id/assuntoVerde"
+        android:layout_width="430dp"
+        android:layout_height="45dp"
+        android:background="@drawable/assuntosbotao"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/trianguloborda"
+        android:layout_width="414dp"
+        android:layout_height="48dp"
+        android:background="@drawable/botaoassuntos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
         android:id="@+id/trocaassuntos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="28dp"
-        android:text="Button"
+        android:layout_width="165dp"
+        android:layout_height="52dp"
+        android:background="@drawable/botaoexercicio"
+        android:onClick="trocaAssuntos"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
-    <Button
-        android:id="@+id/trocaQuestao"
+    <TextView
+        android:id="@+id/quizetri2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="88dp"
-        android:text="Questoes"
+        android:text="VOLTAR"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
+
+    <ImageButton
+        android:id="@+id/iniciaramarelo"
+        android:layout_width="295dp"
+        android:layout_height="123dp"
+        android:background="@drawable/trianguloass"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/forum"
+        android:text="Quadrado"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007" />
+
+    <ImageButton
+        android:id="@+id/questaoCirculo"
+        android:layout_width="173dp"
+        android:layout_height="53dp"
+        android:background="@drawable/botaoexercicio"
+        android:onClick="questaoCirculo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/quizetri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXERCÍCIOS"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="270dp"
+        android:layout_height="90dp"
+        android:fontFamily="@font/forum"
+        android:text="O quadrado é um polígono de quatro lados iguais e quatro ângulos internos retos (90°)."
+        android:textAlignment="center"
+        android:textColor="#020202"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/fundotranspa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assuntoVerde"
+        app:layout_constraintVertical_bias="0.649" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="170dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/forum"
+        android:gravity="center"
+        android:padding="5px"
+        android:text="Lado( l ): É a medida de qualquer uma das quatro linhas que formam o quadrado. Todos os lados têm o mesmo comprimento."
+        android:textAlignment="center"
+        android:textColor="#050505"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/trianguloamareloassunto1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fundotranspa"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/quadrado_exemplo"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="468dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
