@@ -30,7 +30,6 @@ public class QuestaoRetangulo extends AppCompatActivity {
     Intent TelaConteudo;
     private Button voltarAoConteudo;
     int cont = 0;
-
     private List<Question> questions;
     private int currentQuestionIndex = 0;   //Número da questão atual na lista
     private List<Question> correctAnswers;

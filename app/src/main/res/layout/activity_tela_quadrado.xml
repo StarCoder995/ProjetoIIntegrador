@@ -70,7 +70,7 @@
         android:fontFamily="@font/forum"
         android:gravity="center"
         android:padding="5px"
-        android:text="Diagonal( d ): É a linha reta que liga dois cantos opostos do quadrado, passando pelo centro. A formula da Area é dada por (  𝑑=l.√2 )"
+        android:text="Diagonal( d ): É a linha reta que liga dois cantos opostos do quadrado, passando pelo centro."
         android:textAlignment="center"
         android:textColor="#050505"
         android:textSize="12sp"
