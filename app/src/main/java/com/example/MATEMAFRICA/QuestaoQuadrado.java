@@ -73,7 +73,7 @@ public class QuestaoQuadrado extends AppCompatActivity {
                         cont++;
                     }
                     else{
-                        resultTextView.setText("Errou, mano");
+                        resultTextView.setText("Não foi dessa vez...");
                     }
                     currentQuestionIndex++;                             //Aumenta o número da questão a ser usada
                     if (currentQuestionIndex < questions.size()) {      //Testa para ver se ainda estamos dentro da quantia de questões

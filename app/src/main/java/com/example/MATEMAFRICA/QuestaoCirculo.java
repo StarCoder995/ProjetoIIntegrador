@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 // Imports Utilizados
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.RadioGroup;
 import android.widget.Button;
@@ -20,47 +21,49 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class QuestaoRetangulo extends AppCompatActivity {
+public class QuestaoCirculo extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioGroup answersRadioGroup;
-    private Button submitButton;
+    private ImageButton submitButton;
     private TextView resultTextView;
-
     Intent TelaConteudo;
-    private Button voltarAoConteudo;
+    private ImageButton voltarAoConteudo;
     int cont = 0;
+    private TextView enviar;
     private List<Question> questions;
     private int currentQuestionIndex = 0;   //Número da questão atual na lista
     private List<Question> correctAnswers;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_questao_retangulo);
+        setContentView(R.layout.activity_questao_circulo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        // Sincronização de itens com os do xml
         questionTextView = findViewById(R.id.questionTextView);     // comando da questao
         answersRadioGroup = findViewById(R.id.answersRadioGroup);   // lista de respostas
         submitButton = findViewById(R.id.submitButton);             // botao de enviar
-        resultTextView = findViewById(R.id.resultTextView);         // caixa de resultado
+        resultTextView = findViewById(R.id.resultTextView);
+        enviar = findViewById(R.id.enviar);// caixa de resultado
 
         questions = new ArrayList<>(); //Lista das perguntas
 
         // Prox 3 linhas: Cria perguntas na lista de perguntas
-        questions.add(new Question("Quantos lados possui um retângulo?", Arrays.asList("2", "3", "4", "5"), "4"));
-        questions.add(new Question("Marque uma característica correta de um retângulo:", Arrays.asList("4 lados iguais", "Tem apenas 3 lados", "Tem 2 pares de lados iguais", "Todos os lados são diferentes"), "Tem 2 pares de lados iguais"));
-        questions.add(new Question("Um retângulo tem 10 cm de comprimento e 5 cm de largura. Qual é o seu perímetro?", Arrays.asList("17cm", "24cm", "30cm", "34cm"), "30cm"));
-        questions.add(new Question("No jogo Ampe, o espaço delimitado no chão é formado por dois retângulos. Qual das opções abaixo é verdadeira sobre os lados opostos de um retângulo?", Arrays.asList("Eles têm tamanhos diferentes.", "Eles têm o mesmo tamanho", "São sempre menores que o comprimento do retângulo.", "Os lados opostos formam um triângulo."), "Eles têm o mesmo tamanho"));
-        questions.add(new Question("No Ampe, um retângulo no chão tem 4 metros de comprimento e 2 metros de largura. Qual é o perímetro desse retângulo?", Arrays.asList("8m", "12m", "14m", "16m"), "12m"));
+       questions.add(new Question("O que é o raio de um círculo?", Arrays.asList("A reta que liga o ponto central à superfície do círculo", "O ponto central do círculo", "A área interna do círculo", "A distância entre dois pontos do círculo"), "A reta que liga o ponto central à superfície do círculo"));
+        questions.add(new Question("Quantas e quais figuras estão na imagem?", Arrays.asList("3 retângulos, 1 triângulo 2 círculos", "2 retângulos, 2 triângulo 2 círculos", "2 retângulos, 2 triângulo 4 círculos", "2 retângulos, 2 triângulo 4 círculos"), "2 retângulos, 2 triângulo 4 círculos"));
+        questions.add(new Question("A reta que liga uma extremidade a outra no círculo chama-se?", Arrays.asList("raio", "diâmetro", "arco", "diagonal"), "diâmetro"));
+        questions.add(new Question("No jogo Zimbole, as crianças formam um círculo. Qual é o nome do ponto que fica exatamente no meio do círculo?  ", Arrays.asList("raio", "diâmetro", "centro", "circunferência"), "centro"));
+        questions.add(new Question("Se em um círculo na brincadeira zimbole colocarmos uma linha imaginaria de uma extremidade a outra, qual seria o nome dessa linha?", Arrays.asList("raio", "diâmetro", "arco", "diagonal"), "diâmetro"));
+
 
         correctAnswers = new ArrayList<>();
-
         loadQuestion();
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -73,13 +76,13 @@ public class QuestaoRetangulo extends AppCompatActivity {
                     Question currentQuestion = questions.get(currentQuestionIndex);   //extrai a questão da lista , para ser usada Obs : Isso não entra em conflito com aquela do loadQuestion(), pois são objetos dentro de métodos, limitados a eles
 
                     if (respostaMarcada.equals(currentQuestion.getCorrectAnswer())) { //testa se a resposta escolhida é igual à correta
-                        correctAnswers.add(currentQuestion);  
-                        resultTextView.setText("Que Giro!");
-                        cont++;//Se sim, Afirma isso na caixa de resultado
-                    } 
-                    else {
-                        resultTextView.setText("Errou, mano");
+                        correctAnswers.add(currentQuestion);                          //Se sim, adiciona essa questão à lista de respondidas corretamente
+                         resultTextView.setText("Que Giro!");
+                        cont++; //Se sim, Afirma isso na caixa de resultado
+                    } else {
+                        resultTextView.setText("Não foi dessa vez...");
                     }
+
                     currentQuestionIndex++;                           //Aumenta o número da questão a ser usada
                     if (currentQuestionIndex < questions.size()) {  //Testa para ver se ainda estamos dentro da quantia de questões
                         loadQuestion();                             //Se sim, carrega a próxima
@@ -93,13 +96,15 @@ public class QuestaoRetangulo extends AppCompatActivity {
         });
 
         voltarAoConteudo = findViewById(R.id.voltarAoConteudo);
-        TelaConteudo = new Intent(this, TelaRetangulo.class);
+        TelaConteudo = new Intent(this, TelaCirculo.class);
         voltarAoConteudo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 startActivity(TelaConteudo);
             }
         });
+
+
     }
     private void loadQuestion(){
         //Linha a seguir: Carrega a questão atual, extraindo ela da lista com base no número dela
@@ -116,8 +121,9 @@ public class QuestaoRetangulo extends AppCompatActivity {
             RadioButton radioButton = (RadioButton) answersRadioGroup.getChildAt(i);
             radioButton.setText(currentQuestion.getAnswers().get(i));
         }
-      new Handler().postDelayed(() -> resultTextView.setText(""), 3000);
+         new Handler().postDelayed(() -> resultTextView.setText(""), 3000); //O Objeto Handler tem o metodo postDelayed, recebe uma expressão lambda q entrega a operação a ser atrasada e o tempo de atrasp
     }
+
     private void showCorrectAnswers() {
         if(cont<3) {
             StringBuilder questoesAcertadas = new StringBuilder("Você respondeu corretamente:\n" + cont + " perguntas" + "\n" +"Podemos melhorar na próxima");
@@ -128,5 +134,6 @@ public class QuestaoRetangulo extends AppCompatActivity {
             resultTextView.setText(questoesAcertadas);
         }
         submitButton.setVisibility(View.INVISIBLE);
+        enviar.setVisibility(View.INVISIBLE);
     }
 }
